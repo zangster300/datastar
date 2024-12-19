@@ -3,6 +3,7 @@ package smoketests
 import (
 	"context"
 	"fmt"
+	"log"
 	"sync"
 	"testing"
 	"time"
@@ -39,6 +40,7 @@ func setupPageTest(t *testing.T, subURL string, gen func(runner runnerFn)) {
 	runner := func(name string, fn func(t *testing.T, page *rod.Page)) {
 		wg.Add(1)
 		defer wg.Done()
+		log.Printf("currently running [%s] - [%s]", subURL, name)
 		fn(t, page)
 	}
 
