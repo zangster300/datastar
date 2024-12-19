@@ -19,7 +19,6 @@ func TestExampleExecuteScript(t *testing.T) {
 
 			page.EachEvent(func(e *proto.RuntimeConsoleAPICalled) (stop bool) {
 				if e.Type == proto.RuntimeConsoleAPICalledTypeLog {
-					// t.Log(page.MustObjectsToJSON(e.Args))
 					results = append(results, page.MustObjectsToJSON(e.Args))
 					if len(results) == 1 {
 						return true
@@ -38,7 +37,6 @@ func TestExampleExecuteScript(t *testing.T) {
 
 			page.EachEvent(func(e *proto.RuntimeConsoleAPICalled) (stop bool) {
 				if e.Type == proto.RuntimeConsoleAPICalledTypeError {
-					// t.Log(page.MustObjectsToJSON(e.Args))
 					results = append(results, page.MustObjectsToJSON(e.Args))
 					if len(results) == 1 {
 						return true

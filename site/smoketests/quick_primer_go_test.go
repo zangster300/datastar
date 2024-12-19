@@ -37,16 +37,12 @@ func TestExampleQuickPrimerGo(t *testing.T) {
 			selector := "#output"
 			initial := page.MustElement(selector).MustText()
 
-			t.Logf("initial: %s", initial)
-
 			btn := page.MustElementR("button", "Send State")
 			btn.MustClick()
 
 			page.MustWaitDOMStable()
-			page.MustScreenshot("send.png")
 
 			result := page.MustElement(selector).MustText()
-			t.Logf("result: %s", result)
 
 			assert.NotEqual(t, initial, result)
 		})

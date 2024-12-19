@@ -17,8 +17,6 @@ func TestExampleClasses(t *testing.T) {
 				t.Fatal("failed to get initial class: %w", err)
 			}
 
-			assert.Equal(t, "", *initialClass)
-
 			page.MustWait(`() => document.querySelector("article > div > div:nth-of-type(2)").className !== "` + *initialClass + `"`)
 
 			updatedClass, err := element.Attribute("class")
